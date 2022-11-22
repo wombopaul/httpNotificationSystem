@@ -17,21 +17,23 @@ class PublisherObserver
     public function created(Publisher $publisher)
     {
         //check if there are any subscribers to the topic
-        $subscribers = Subscriber::where('topic', $publisher->topic);
+        $subscribers = Subscriber::where('topic', $publisher->topic)->get();
 
-        if($publisher){
+        if($subscribers){
             // call webhook here to send TTTP request to any subscribers
 
             foreach($subscribers as $subscriber){
 
-                // WebhookCall::create()
-                //     ->url('https://other-app.com/webhooks')
-                //     ->payload(['key' => 'value'])
-                //     ->useSecret('my-secret-key')
-                //     ->dispatch();
-                }
+                    WebhookCall::create()
+                    ->url($subscriber->url . '/' . $publisher->topic . '/webhook-receiving-url')
+                    ->payload(['topic' => $publisher->topic,
+                                'data' => ['msg' => $publisher->data]
+                            ])
+                    ->useSecret('secretKey')
+                    ->dispatch();
+            }
 
-                $publisher->test = "pushed";
+                //$publisher->test = "Ayanxi";
         }
     }
 

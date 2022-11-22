@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::post('/subscribe/{topic}', [SubscriberController::class, 'store']);
 Route::post('/publish/{topic}', [PublisherController::class, 'store']);
 
-Route::webhooks('webhook-receiving-url');
+Route::webhooks('/{topic}/webhook-receiving-url');
