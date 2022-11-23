@@ -8,7 +8,8 @@ class HttpHandler extends ProcessWebhookJob
 {
     public function handle()
     {
-        logger('Test');
-        logger($this->webhookCall);
+        logger('Forwarded to subscribing Server');
+        logger('url: '. $this->webhookCall->url);
+        logger('payload: '. json_encode($this->webhookCall->payload));
     }
 }

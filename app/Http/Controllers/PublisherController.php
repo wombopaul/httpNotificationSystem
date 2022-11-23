@@ -35,6 +35,8 @@ class PublisherController extends Controller
             'data' => $request->msg
         ]);
 
+        // publisherObserver is called after each publish is made
+
         return $this->successResponse(new PublisherResource($publisher));
 
     }

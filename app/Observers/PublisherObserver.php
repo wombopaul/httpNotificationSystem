@@ -25,7 +25,7 @@ class PublisherObserver
             foreach($subscribers as $subscriber){
 
                     WebhookCall::create()
-                    ->url($subscriber->url . '/' . $publisher->topic . '/webhook-receiving-url')
+                    ->url($subscriber->url . '/' . $publisher->topic . '/subscriber')
                     ->payload(['topic' => $publisher->topic,
                                 'data' => ['msg' => $publisher->data]
                             ])
@@ -33,7 +33,6 @@ class PublisherObserver
                     ->dispatch();
             }
 
-                //$publisher->test = "Ayanxi";
         }
     }
 
