@@ -44,6 +44,13 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 ```
 
+Next add the below code to your .env  file
+
+```bash
+WEBHOOK_CLIENT_SECRET=secretKey
+```
+
+
 Next run the command below to create the database
 
 ```bash
