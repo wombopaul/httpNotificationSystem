@@ -44,6 +44,18 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 ```
 
+Change  this
+
+```bash
+QUEUE_CONNECTION=sync
+```
+
+to this
+
+```bash
+QUEUE_CONNECTION=database
+```
+
 Next add the below code to your .env  file
 
 ```bash
